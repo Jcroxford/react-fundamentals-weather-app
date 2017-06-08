@@ -138,3 +138,7 @@ a {
     text-align: center;
 }
 
+.loadingText {
+  text-align: center;
+  font-size: 25px;
+}
