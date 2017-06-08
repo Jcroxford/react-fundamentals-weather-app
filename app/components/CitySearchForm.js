@@ -1,4 +1,7 @@
+//TODO: prevent routing with an empty text field
+//TODO: allow routing to occur when hitting enter as well as when the button is pressed
 import React, {Component} from 'react';
+import Router, {Link} from 'react-router-dom';
 import api from '../utils/api';
 
 class CitySearchForm extends Component {
@@ -20,22 +23,26 @@ class CitySearchForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(`you typed in ${this.state.location}`);
-        // current weather request
-        // api.fetchCurrentWeather(this.state.location)
+        // console.log(`you typed in ${this.state.location}`);
+        // // current weather request
+        // // api.fetchCurrentWeather(this.state.location)
+        // //     .then( (res) => {
+        // //         console.log(res);
+        // //     });
+
+
+        // // 5 day weather request
+        // api.fetchFiveDayWeather(this.state.location)
         //     .then( (res) => {
         //         console.log(res);
         //     });
-
-
-        // 5 day weather request
-        api.fetchFiveDayWeather(this.state.location)
-            .then( (res) => {
-                console.log(res);
-            });
+        
+        
     }
 
     render() {
+        const location = this.state.location;
+
         return(
             <form 
                 className="zipcode-container" 
@@ -55,7 +62,12 @@ class CitySearchForm extends Component {
                     className="btn btn-success"
                     style={{margin: 10}}
                 >
-                    Get Weather
+                    <Link to={{
+                        pathname: '/forecast',
+                        search:  `?city=${location}`
+                    }}>
+                        Get Weather
+                    </Link>
                 </button>
             </form>
         );

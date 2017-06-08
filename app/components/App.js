@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-//import ReactRouter from 'react-router-dom';
-import {BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import CitySearchForm from './CitySearchForm';
 import Forecast from './Forecast';
 
@@ -10,7 +9,9 @@ class App extends Component {
             <BrowserRouter>
                 <div className="container">
                     <div className="navbar">
-                        <h1>My Weather App</h1>
+                        <Link to='/'>
+                            <h1>My Weather App</h1>
+                        </Link>
                         <CitySearchForm flexDir="row"/>
                     </div>
                     <Switch>
@@ -21,7 +22,7 @@ class App extends Component {
                             </div>
                         )} />
                         
-                        <Route path='/forecast' component={Forecast} />
+                        <Route exact path='/forecast' component={Forecast} />
                         
                         <Route render={ () => <p>404 Page Not Found</p>} />
                     </Switch>
