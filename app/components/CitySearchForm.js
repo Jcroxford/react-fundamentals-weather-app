@@ -1,5 +1,6 @@
 //TODO: prevent routing with an empty text field
 //TODO: allow routing to occur when hitting enter as well as when the button is pressed
+//TODO: header search appears to not work on forecast route
 import React, {Component} from 'react';
 import Router, {Link} from 'react-router-dom';
 import api from '../utils/api';

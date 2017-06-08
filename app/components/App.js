@@ -1,3 +1,11 @@
+// one day view
+// day icon
+// location
+// sky conditions
+// min temp
+// max temp
+// humidity
+
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import CitySearchForm from './CitySearchForm';

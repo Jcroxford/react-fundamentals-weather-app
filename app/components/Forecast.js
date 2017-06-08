@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import queryString from 'query-string';
 import api from '../utils/api';
 import Loading from './Loading';
+import SimpleDayView from './SimpleDayView';
 
 class Forecast extends Component {
   constructor(props) {
@@ -26,13 +27,19 @@ class Forecast extends Component {
   }
 
   render() {
-    return (
-      <div className>
-        {!this.state.weatherData
+    const weatherData = this.state.weatherData;
+    const location = queryString.parse(this.props.location.search);
+    return !this.state.weatherData
           ? <Loading />
-          : <div>Forcast Component Test</div>}
-      </div>
-    )
+          : <div>
+              <h1 className="forecast-header">Results for {location.city}</h1>
+              <div className="forecast-container">
+                {weatherData.fiveDayWeather.map( (day) => {
+                  return <SimpleDayView day={day} key={day.dt}/>
+                })}
+              </div>
+            </div>
+
   }
 }
 
