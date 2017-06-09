@@ -5,7 +5,7 @@ function SimpleDayView (props) {
   console.log(props.day.dt);
   const date = getDate(props.day.dt);
   return (
-    <div onclick={props.onClick} className="dayContainer">
+    <div onClick={props.onClick} className="dayContainer">
       <img 
         src={`app/images/weather-icons/${props.day.weather[0].icon}.svg`} 
         alt='display for weather conditions'

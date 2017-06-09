@@ -10,6 +10,7 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import CitySearchForm from './CitySearchForm';
 import Forecast from './Forecast';
+import Detail from './Detail';
 
 class App extends Component {
     render() {
@@ -29,9 +30,8 @@ class App extends Component {
                                 <CitySearchForm flexDir='column' />
                             </div>
                         )} />
-                        
                         <Route exact path='/forecast' component={Forecast} />
-                        
+                        <Route path='/details/:city' component={Detail} />
                         <Route render={ () => <p>404 Page Not Found</p>} />
                     </Switch>
                 </div>
