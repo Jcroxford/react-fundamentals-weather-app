@@ -38,22 +38,4 @@ module.exports = {
             })
             .catch(handleError);
     }
-
-    // fetchCurrentWeather: (location) => {
-    //     const encodedURI = window.encodeURI(`http://api.openweathermap.org/data/2.5/weather?q=${location}&type=accurate&APPID=${apiKey}`);
-        
-    //     return axios.get(encodedURI)
-    //         .then( (res) => {
-    //             return res.data;
-    //         });
-    // },
-
-    // fetchFiveDayWeather: (location) => {
-    //     const encodedURI = window.encodeURI(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&type=accurate&APPID=${apiKey}&cnt=5`);
-
-    //     return axios.get(encodedURI)
-    //         .then( (res) => {
-    //             return res.data.list;
-    //         })
-    // }
 }

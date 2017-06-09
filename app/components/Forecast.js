@@ -19,7 +19,6 @@ class Forecast extends Component {
     this.city = queryString.parse(this.props.location.search).city;
     api.getWeatherData(this.city)
       .then( data => {
-        console.log(data); //TODO: remove once done testing
         this.setState( () => {
           return {
             weatherData: data
@@ -32,7 +31,8 @@ class Forecast extends Component {
   handleClick(city) { 
     this.props.history.push({
       pathname: '/details/' + this.city,
-      state: city
+      state: city,
+      city: this.city
     });
   }
 

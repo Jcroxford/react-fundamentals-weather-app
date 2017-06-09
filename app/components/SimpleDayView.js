@@ -2,12 +2,13 @@ import React, {component} from 'react';
 import {getDate} from '../utils/dates';
 
 function SimpleDayView (props) {
+  console.log('props:', props);
   console.log(props.day.dt);
   const date = getDate(props.day.dt);
   return (
     <div onClick={props.onClick} className="dayContainer">
       <img 
-        src={`app/images/weather-icons/${props.day.weather[0].icon}.svg`} 
+        src={`/app/images/weather-icons/${props.day.weather[0].icon}.svg`} 
         alt='display for weather conditions'
         className="weather"
       />
