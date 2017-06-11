@@ -1,9 +1,7 @@
 import React, {component} from 'react';
-import {getDate} from '../utils/dates';
+import {getDate}          from '../utils/dates';
 
-function SimpleDayView (props) {
-  console.log('props:', props);
-  console.log(props.day.dt);
+const SimpleDayView = props => {
   const date = getDate(props.day.dt);
   return (
     <div onClick={props.onClick} className="dayContainer">
