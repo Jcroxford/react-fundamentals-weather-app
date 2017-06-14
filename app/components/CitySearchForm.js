@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Router, {Link} from 'react-router-dom';
+import Router, {Link, withRouter} from 'react-router-dom';
 import api from '../utils/api';
 
 class CitySearchForm extends Component {
@@ -23,6 +23,13 @@ class CitySearchForm extends Component {
         event.preventDefault();
     }
 
+    submitSearch(location) {
+      this.props.history.push({
+        pathname: '/forecast',
+        search:  `?city=${location}`
+      })
+    }
+
     render() {
         const location = this.state.location;
 
@@ -36,25 +43,24 @@ class CitySearchForm extends Component {
                     className="form-control"
                     type="text"
                     placeholder="St. George, UT"
-                    value={this.state.value} 
+                    value={this.state.value}
                     onChange={this.handleChange}
-                    required 
+                    onKeyPress={(e) => (
+                      e.key === "Enter" ? this.submitSearch(location) : null
+                    )}
+                    required
                 />
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     className="btn btn-success"
                     style={{margin: 10}}
+                    onClick={(e) => this.submitSearch(location)}
                 >
-                    <Link to={{
-                        pathname: '/forecast',
-                        search:  `?city=${location}`
-                    }}>
-                        Get Weather
-                    </Link>
+                    Get Weather
                 </button>
             </form>
         );
     }
 }
 
-module.exports = CitySearchForm;
+module.exports = withRouter(CitySearchForm);
